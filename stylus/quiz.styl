@@ -1,0 +1,103 @@
+.board
+	border 4px solid $mainColor
+	border-left-color $mainColor
+	border-top-color $mainColor
+	border-bottom-color $lightColor
+	border-right-color $lightColor
+	border-bottom-right-radius 25px
+	border-top-left-radius 25px
+	background-color $bg
+	padding 50px
+	margin-top 120px
+	position relative
+	& .item
+		display table
+		width 100%
+		&>div
+			display table-cell
+			vertical-align top
+		& .score
+			text-align center
+			width 95px			
+			font-weight bold
+			padding-right 30px
+			&>p
+				set-font-size(45px)
+			&>i
+				font-weight normal
+				set-font-size(14px)
+		& .picture
+			width 214px
+			height 317px
+			bgImage()
+			background-position top center
+		& .question
+			padding-left 30px
+			position relative
+			& footer
+				width 100%
+				position absolute
+				left 0px
+				padding-left 30px
+				bottom 0
+				& .btn
+					display inline-block
+					vertical-align middle
+					&:last-child
+						float right
+				& p
+					display inline-block
+					vertical-align middle
+					margin-left 12px
+					color $right
+			& h2
+				set-font-size(22px)
+				margin-bottom 12px
+			& input
+				display block
+				padding 0px 12px
+				height 45px
+				width 100%
+				set-font-size(20px)
+				color $txt
+			&>.btn
+				float right
+			&>p
+				float left
+				margin-top 8px
+				font-weight bold
+				set-font-size(24px)
+	& h1
+		set-font-size(46px)
+		font-weight bold
+		color $mainColor
+		margin-bottom 45px
+		
+.btn
+	margin 8px 0px
+	border 1px solid $mainColor
+	padding 12px 35px
+	display inline-block
+	cursor pointer
+	&:hover
+		color #fff
+		background-color $mainColor
+		
+#loading
+	width 100%
+	height 100%
+	position absolute
+	left 0
+	top 0
+	z-index 9999
+	background-color rgba(255,255,255,0.7)
+	border-bottom-right-radius 25px
+	border-top-left-radius 25px
+	&>div
+		position relative
+		centerH()
+		
+.right
+	color $right
+.wrong
+	color $wrong

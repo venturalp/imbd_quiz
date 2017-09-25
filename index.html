@@ -4,11 +4,53 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
+	<title>IMDB Quiz - Guilherme Ventura de Souza</title>
+	<link rel="stylesheet" href="css/general.css" />
+	<link rel="stylesheet" href="css/loading.css" />
 </head>
 
-<body>
-
+<body ng-app="imdbApp" ng-controller="quizCtrl">
+	<section>
+		<article class="content board">
+			<div id="loading" ng-show="loading">
+				<div id="fountainG">
+					<div id="fountainG_1" class="fountainG"></div>
+					<div id="fountainG_2" class="fountainG"></div>
+					<div id="fountainG_3" class="fountainG"></div>
+					<div id="fountainG_4" class="fountainG"></div>
+					<div id="fountainG_5" class="fountainG"></div>
+					<div id="fountainG_6" class="fountainG"></div>
+					<div id="fountainG_7" class="fountainG"></div>
+					<div id="fountainG_8" class="fountainG"></div>
+				</div>
+			</div>
+			<h1>IMDB Quiz {{infos.current}}/10</h1>
+			<div class="item">
+				<div class="score">
+					<p>{{infos.pontos}}</p>
+					<i>ponto(s)</i>
+				</div>
+<!--				<div class="picture" ng-style="{'background-image':'url(questao.foto)'}">-->
+				<div class="picture" ng-style="{'background-image':'url(' + question.img + ')'}">					
+				</div>
+				<div class="question">
+					<h2>Qual é o nome do(a) ator(atriz) da foto?</h2>
+					<input type="text" placeholder="Qual é o nome?" ng-model="question.resposta"/>
+					<p ng-class="question.acertou?'right':'wrong'">{{msg}}</p>
+					<a class="btn" ng-click="responder()">Responder</a>
+					<footer>
+						<a class="btn" ng-click="desisto()">Desisto, quem é?</a>
+						<p>{{dica}}</p>
+						<a class="btn" ng-click="nextQuestion()" ng-if="infos.current<11">Próxima</a>
+					</footer>
+				</div>
+			</div>
+		</article>
+	</section>
 </body>
-
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/quizCtrl.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
 </html>
