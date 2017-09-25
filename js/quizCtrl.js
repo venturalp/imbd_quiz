@@ -1,16 +1,5 @@
 (function(){
 	angular.module('imdbApp').controller('quizCtrl', ['$scope','$v.Math', '$http', function($scope, $math, $http){
-		$scope.msg = '';
-		$scope.dica = '';
-		$scope.flagDesisto = false;
-		$scope.terminou = false;
-		
-		$scope.loading = false;
-		
-		$scope.infos = {
-			current :0,
-			pontos : 0
-		}		
 		
 		//Limpa dados de questão e vai para a próxima questão
 		$scope.nextQuestion = function(){
@@ -66,6 +55,23 @@
 			$scope.dica = $scope.question.nome;
 		}
 		
+		//Inicia/Reinicia uma partida				
+		$scope.newQuiz = function(){
+			$scope.msg = '';
+			$scope.dica = '';
+			$scope.flagDesisto = false;
+			$scope.terminou = false;
+
+			$scope.loading = false;
+
+			$scope.infos = {
+				current :0,
+				pontos : 0
+			}
+			
+			$scope.nextQuestion();
+		}
+		
 		$scope.responder = function(){
 			//não deixa o usuário responder novamente caso ele já tenha acertado, para evitar ganhar mais pontos do que o devido
 			if ($scope.question.respondeu) return;
@@ -84,6 +90,7 @@
 			$scope.question.respondeu = true;
 		}
 		
-		$scope.nextQuestion();
+		$scope.newQuiz();
+		
 	}] );
 })();
