@@ -33,16 +33,20 @@
 <!--				<div class="picture" ng-style="{'background-image':'url(questao.foto)'}">-->
 				<div class="picture" ng-style="{'background-image':'url(' + question.img + ')'}">					
 				</div>
-				<div class="question">
+				<div class="question" ng-if="infos.current<3">
 					<h2>Qual é o nome do(a) ator(atriz) da foto?</h2>
 					<input type="text" placeholder="Qual é o nome?" ng-model="question.resposta"/>
 					<p ng-class="question.acertou?'right':'wrong'">{{msg}}</p>
-					<a class="btn" ng-click="responder()">Responder</a>
+					<a class="btn" ng-click="responder()" ng-if="!question.respondeu">Responder</a>
 					<footer>
 						<a class="btn" ng-click="desisto()">Desisto, quem é?</a>
 						<p>{{dica}}</p>
-						<a class="btn" ng-click="nextQuestion()" ng-if="infos.current<11">Próxima</a>
+						<a class="btn" ng-click="nextQuestion()">Próxima</a>
 					</footer>
+					<p class="small">{{dica}}</p>					
+				</div>
+				<div class="compartilhe" ng-if="infos.current>=3">				
+					<a ng-href='https://api.whatsapp.com/send?text=Eu fiz {{infos.pontos}} ponto(s) no IMDB Quiz, tente você também http://www.quiz.abc' target="_blank">Compartilhe seu Resultado</a>
 				</div>
 			</div>
 		</article>

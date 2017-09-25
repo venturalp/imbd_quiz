@@ -34,6 +34,8 @@
 		& .question
 			padding-left 30px
 			position relative
+			& .small
+				display none
 			& footer
 				width 100%
 				position absolute
@@ -72,7 +74,47 @@
 		font-weight bold
 		color $mainColor
 		margin-bottom 45px
-		
+	+below(1400px)
+		margin-top 80px
+	+below(1030px)
+		margin-top 25px
+		padding 20px		
+		& .item
+			&>div
+				display block
+				&.question
+					padding-left 0px
+					margin-top 20px
+					& p
+						margin-bottom 6px
+						float inherit
+					& footer
+						position relative
+						padding-left 0px
+						&>.btn
+							display inline-block
+							vertical-align middle							
+					&>.btn
+						float inherit
+				&.score
+					padding-right 0px
+					margin-bottom 15px
+	+below(600px)
+		& h1
+			set-font-size(32px)
+		& .item
+			&>div
+				&.question
+					& footer
+						&>.btn
+							&:last-child
+								float inherit
+						& p
+							display none
+					& .small
+						display block
+						color $right
+						set-font-size(15px)
 .btn
 	margin 8px 0px
 	border 1px solid $mainColor
@@ -82,6 +124,8 @@
 	&:hover
 		color #fff
 		background-color $mainColor
+	+below(1030px)
+		padding 12px 15px
 		
 #loading
 	width 100%

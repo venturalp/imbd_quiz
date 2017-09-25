@@ -14,8 +14,8 @@
 		//Limpa dados de questão e vai para a próxima questão
 		$scope.nextQuestion = function(){
 			//Verifica se já respondeu todas as questões
-			if ($scope.infos.current==10){
-				alert("Final do quiz");
+			if ($scope.infos.current==2){
+				$scope.infos.current++;				
 			}else{
 				$scope.question = {
 					nome:'',
@@ -74,12 +74,13 @@
 				//não soma ponto se o usuário usou a dica
 				if (!$scope.flagDesisto)
 					$scope.infos.pontos++;
-				$scope.question.respondeu = true;
-			}else{
+			}else{				
 				$scope.question.acertou = false;
 				$scope.msg = "Que pena, você errou!"
 				$scope.infos.pontos--;
 			}
+			
+			$scope.question.respondeu = true;
 		}
 		
 		$scope.nextQuestion();
