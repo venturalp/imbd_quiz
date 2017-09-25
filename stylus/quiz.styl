@@ -10,6 +10,7 @@
 	padding 50px
 	margin-top 120px
 	position relative
+	margin-bottom 45px
 	& .item
 		display table
 		width 100%
@@ -104,6 +105,9 @@
 			set-font-size(32px)
 		& .item
 			&>div
+				&.picture
+					width 142px
+					height 230px
 				&.question
 					& footer
 						&>.btn
@@ -121,6 +125,8 @@
 	padding 12px 35px
 	display inline-block
 	cursor pointer
+	color $mainColor
+	text-decoration none
 	&:hover
 		color #fff
 		background-color $mainColor

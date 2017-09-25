@@ -3,7 +3,8 @@
 		$scope.msg = '';
 		$scope.dica = '';
 		$scope.flagDesisto = false;
-				
+		$scope.terminou = false;
+		
 		$scope.loading = false;
 		
 		$scope.infos = {
@@ -14,8 +15,8 @@
 		//Limpa dados de questão e vai para a próxima questão
 		$scope.nextQuestion = function(){
 			//Verifica se já respondeu todas as questões
-			if ($scope.infos.current==2){
-				$scope.infos.current++;				
+			if ($scope.infos.current==10){
+				$scope.terminou = true;								
 			}else{
 				$scope.question = {
 					nome:'',
