@@ -1,0 +1,13 @@
+{
+  "name": "Quiz IMDB",
+  "homepage": "https://github.com/venturalp/imbd_quiz",
+  "authors": [
+    "Guilherme Ventura <venturalp@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.6"
+  }
+}
